@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Aarush Agrawal | Engineering the Future with Code</title>
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+<style>
+/* RESET */
+*{margin:0;padding:0;box-sizing:border-box;font-family:'Inter',sans-serif;}
+body{background:#0a0f1c;color:#eaeaea;overflow-x:hidden;scroll-behavior:smooth;transition:0.5s;}
+a{text-decoration:none;color:#00f5ff;}
+ul{list-style:none;}
+#particles-js{position:fixed;width:100%;height:100%;z-index:-1;top:0;left:0;}
+/* Dark/Light mode toggle */
+body.light{background:#f5f5f5;color:#0a0f1c;}
+body.light nav{background:rgba(245,245,245,0.7);}
+body.light .card,.flip-front,.flip-back{background:rgba(255,255,255,0.8);color:#0a0f1c;border:1px solid rgba(0,0,0,0.1);}
+body.light .glow-btn{color:#0a0f1c;}
+/* Navbar */
+nav{position:fixed;width:100%;padding:20px 8%;display:flex;justify-content:space-between;align-items:center;background:rgba(15,17,26,0.6);backdrop-filter:blur(20px);z-index:1000;}
+nav h1{font-family:'Orbitron',sans-serif;color:#00f5ff;font-size:22px;letter-spacing:2px;}
+nav ul{display:flex;gap:30px;}
+nav a{transition:0.3s;}nav a:hover{opacity:0.7;}
+#modeToggle{padding:6px 14px;border-radius:10px;border:none;cursor:pointer;background:#00f5ff;color:#0a0f1c;font-weight:700;transition:0.4s;}
+#modeToggle:hover{opacity:0.8;}
+/* Hero */
+.hero{height:100vh;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;padding:0 10%;}
+.hero h2{font-family:'Orbitron',sans-serif;font-size:60px;color:#00f5ff;margin-bottom:15px;line-height:1.2;min-height:80px;}
+.hero p{font-size:20px;max-width:700px;opacity:0.85;margin-top:10px;}
+.glow-btn{padding:12px 30px;border:none;border-radius:12px;background:linear-gradient(90deg,#00f5ff,#ff00cc);color:#0a0f1c;font-weight:700;cursor:pointer;transition:0.5s;margin-top:25px;}
+.glow-btn:hover{box-shadow:0 0 20px #00f5ff,0 0 30px #ff00cc;}
+/* Sections */
+section{padding:120px 10%;position:relative;}
+.section-title{font-family:'Orbitron',sans-serif;font-size:40px;color:#00f5ff;text-align:center;margin-bottom:60px;}
+/* Flip Cards */
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:40px;perspective:1000px;}
+.flip-card{background:transparent;width:100%;height:250px;perspective:1000px;cursor:pointer;}
+.flip-inner{position:relative;width:100%;height:100%;text-align:center;transition:transform 0.8s;transform-style:preserve-3d;border-radius:25px;box-shadow:0 0 20px rgba(0,245,255,0.2);}
+.flip-card:hover .flip-inner{transform:rotateY(180deg);}
+.flip-front,.flip-back{position:absolute;width:100%;height:100%;backface-visibility:hidden;border-radius:25px;display:flex;flex-direction:column;justify-content:center;align-items:center;padding:20px;background:rgba(255,255,255,0.05);backdrop-filter:blur(20px);border:1px solid rgba(0,245,255,0.2);}
+.flip-back{transform:rotateY(180deg);}
+.flip-back video{width:100%;height:150px;border-radius:15px;object-fit:cover;}
+/* Skills */
+.skill-bar{margin:15px 0;background:rgba(255,255,255,0.05);border-radius:12px;overflow:hidden;}
+.skill-fill{height:25px;width:0;background:linear-gradient(90deg,#00f5ff,#ff00cc);border-radius:12px;display:flex;align-items:center;justify-content:right;padding-right:10px;color:#0a0f1c;font-weight:700;transition:1s;}
+.skill-circle{position:relative;width:120px;height:120px;margin:20px auto;}
+.skill-circle svg{transform:rotate(-90deg);}
+.skill-circle circle{fill:none;stroke:#111;color:#111;stroke-width:12;stroke-linecap:round;}
+.skill-circle .progress{stroke:linear-gradient(90deg,#00f5ff,#ff00cc);stroke-width:12;stroke-linecap:round;stroke-dasharray:377;stroke-dashoffset:377;transition:1s linear;}
+.skill-circle p{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);font-weight:700;}
+/* Stats */
+.stats{display:flex;justify-content:center;gap:50px;margin-top:50px;flex-wrap:wrap;}
+.stat{background:rgba(255,255,255,0.05);padding:25px 35px;border-radius:25px;text-align:center;backdrop-filter:blur(15px);}
+.stat h3{font-size:32px;color:#00f5ff;margin-bottom:10px;}
+.stat p{opacity:0.85;font-size:18px;}
+/* Contact */
+.contact-box{text-align:center;}
+.contact-box p{margin:15px 0;font-size:18px;opacity:0.85;}
+/* Footer */
+footer{text-align:center;padding:50px;opacity:0.6;}
+/* Reveal */
+.reveal{opacity:0;transform:translateY(80px);filter:blur(10px);transition:1.2s ease;}
+.reveal.active{opacity:1;transform:translateY(0);filter:blur(0);}
+</style>
+</head>
+<body>
+<!-- PARTICLES -->
+<div id="particles-js"></div>
+<nav>
+<h1>AARUSH AGRAWAL</h1>
+<ul>
+<li><a href="#home">Home</a></li>
+<li><a href="#about">About</a></li>
+<li><a href="#projects">Projects</a></li>
+<li><a href="#skills">Skills</a></li>
+<li><a href="#stats">Stats</a></li>
+<li><a href="#contact">Contact</a></li>
+</ul>
+<button id="modeToggle">Light/Dark</button>
+</nav>
+<!-- Hero -->
+<section class="hero" id="home">
+<h2 id="typed-text"></h2>
+<p>I build scalable projects, intelligent systems, and interactive experiences that shape the digital world.</p>
+<button class="glow-btn" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">Contact Me</button>
+</section>
+<!-- About -->
+<section id="about" class="reveal">
+<h2 class="section-title">About Me</h2>
+<div class="cards">
+<div class="flip-card"><div class="flip-inner">
+<div class="flip-front card"><h3>Visionary Builder</h3><p>Planning projects with long-term impact.</p></div>
+<div class="flip-back card"><h3>Details</h3><p>Structured approach, scalable software, futuristic design.</p></div>
+</div></div>
+<div class="flip-card"><div class="flip-inner">
+<div class="flip-front card"><h3>Problem Solver</h3><p>Complex challenges excite me.</p></div>
+<div class="flip-back card"><h3>Details</h3><p>Logical breakdowns, AI implementation, advanced algorithms.</p></div>
+</div></div>
+<div class="flip-card"><div class="flip-inner">
+<div class="flip-front card"><h3>Execution Driven</h3><p>Ideas become reality.</p></div>
+<div class="flip-back card"><h3>Details</h3><p>High-quality code, real projects, scalable solutions.</p></div>
+</div></div>
+</div>
+</section>
+<!-- Projects -->
+<section id="projects" class="reveal">
+<h2 class="section-title">Projects</h2>
+<div class="cards">
+<div class="flip-card"><div class="flip-inner">
+<div class="flip-front card"><h3>3D Cricket Simulation</h3><p>Hover to preview project.</p></div>
+<div class="flip-back card">
+<video src="https://www.w3schools.com/html/mov_bbb.mp4" autoplay muted loop></video>
+<p>AI Cricket Game with realistic physics.</p>
+</div>
+</div></div>
+<div class="flip-card"><div class="flip-inner">
+<div class="flip-front card"><h3>Academic Intelligence System</h3><p>Hover to preview project.</p></div>
+<div class="flip-back card">
+<video src="https://www.w3schools.com/html/movie.mp4" autoplay muted loop></video>
+<p>AI study planner optimized for boards.</p>
+</div>
+</div></div>
+<div class="flip-card"><div class="flip-inner">
+<div class="flip-front card"><h3>Future Startup Vision</h3><p>Hover to preview project.</p></div>
+<div class="flip-back card">
+<video src="https://www.w3schools.com/html/mov_bbb.mp4" autoplay muted loop></video>
+<p>Scalable digital infrastructure project.</p>
+</div>
+</div></div>
+</div>
+</section>
+<!-- Skills -->
+<section id="skills" class="reveal">
+<h2 class="section-title">Skills</h2>
+<div class="skill-bar"><div class="skill-fill" data-percent="95%">HTML 95%</div></div>
+<div class="skill-bar"><div class="skill-fill" data-percent="90%">Java 90%</div></div>
+</section>
+<!-- Stats -->
+<section id="stats" class="reveal">
+<h2 class="section-title">Stats</h2>
+<div class="stats">
+<div class="stat"><h3 id="stat1">0</h3><p>Newcomer</p></div>
+<div class="stat"><h3 id="stat2">0</h3><p>Maths Expert</p></div>
+<div class="stat"><h3 id="stat3">0</h3><p>Class 10 Student</p></div>
+</div>
+</section>
+<!-- Contact -->
+<section id="contact" class="reveal">
+<h2 class="section-title">Contact</h2>
+<div class="contact-box">
+<p>📞 +91 7415072867</p>
+<p>📧 aarushagrawal240411@gmail.com</p>
+<p>📸 Instagram: darkscent_aarushagrawal</p>
+</div>
+</section>
+<footer>
+© 2026 Aarush Agrawal | Ultimate Neon Portfolio
+</footer>
+<script src="https://cdn.jsdelivr.net/npm/particles.js"></script>
+<script>
+/* PARTICLES JS */
+particlesJS("particles-js",{
+"particles":{
+"number":{"value":100,"density":{"enable":true,"value_area":800}},
+"color":{"value":["#00f5ff","#ff00cc"]},
+"shape":{"type":"circle"},
+"opacity":{"value":0.05,"random":true},
+"size":{"value":3,"random":true},
+"line_linked":{"enable":true,"distance":120,"color":"#00f5ff","opacity":0.05,"width":1},
+"move":{"enable":true,"speed":2,"direction":"none","random":true,"out_mode":"out"}
+},
+"interactivity":{"detect_on":"canvas","events":{"onhover":{"enable":true,"mode":"repulse"}}}
+});
+/* Typing Hero */
+const text="Engineering the Future with Code";
+let i=0;
+const typedEl=document.getElementById("typed-text");
+function typeWriter(){
+if(i<text.length){typedEl.innerHTML+=text.charAt(i);i++;setTimeout(typeWriter,100);}
+}
+typeWriter();
+/* Scroll Reveal */
+const reveals=document.querySelectorAll(".reveal");
+window.addEventListener("scroll",()=>{
+reveals.forEach(sec=>{
+if(sec.getBoundingClientRect().top<window.innerHeight-100){sec.classList.add("active");}})});
+/* Skill Animation */
+window.addEventListener("scroll",()=>{
+const skills=document.querySelectorAll(".skill-fill");
+skills.forEach(skill=>{
+const rect=skill.getBoundingClientRect();
+if(rect.top<window.innerHeight-100){skill.style.width=skill.getAttribute("data-percent");}
+});
+});
+/* Stats Counters */
+function animateCounter(id,target){
+let count=0;
+const el=document.getElementById(id);
+const interval=setInterval(()=>{if(count<target){count++;el.innerText=count;}else{clearInterval(interval);}},30);
+}
+window.addEventListener("scroll",()=>{
+const rect=document.getElementById("stats").getBoundingClientRect();
+if(rect.top<window.innerHeight-100){
+animateCounter("stat1",1);
+animateCounter("stat2",100);
+animateCounter("stat3",10);
+}
+});
+/* Dark/Light Mode */
+document.getElementById("modeToggle").addEventListener("click",()=>{document.body.classList.toggle("light");});
+</script>
+</body>
+</html>
