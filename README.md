@@ -8,40 +8,34 @@
 
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 
-<!-- FAVICON -->
 <link rel="icon" href="https://i.postimg.cc/ZnvffBCg/1dcdb7f7-de7b-48ae-920e-9869e990031b-7C361840-19A8-47AC-B944-81763F2E43D9.jpg">
 
 <style>
 :root{
---bg:#0a0c10;
---card:#12161c;
+--bg:#05070a;
+--card:#0f1318;
 --text:#f5f7fa;
 --muted:#8b949e;
 --border:#1f2630;
 --accent:#5b7cff;
+--glow:#5b7cff55;
 }
 
-*{
-margin:0;
-padding:0;
-box-sizing:border-box;
-font-family:'Inter',sans-serif;
-}
+*{margin:0;padding:0;box-sizing:border-box;font-family:'Inter',sans-serif;}
 
 body{
-background:var(--bg);
+background:radial-gradient(circle at 20% 20%, #111827, #05070a);
 color:var(--text);
-line-height:1.6;
 scroll-behavior:smooth;
 }
 
-/* NAVBAR */
+/* NAV */
 nav{
 display:flex;
 justify-content:space-between;
 align-items:center;
 padding:18px 50px;
-background:rgba(10,12,16,0.7);
+background:rgba(5,7,10,0.7);
 backdrop-filter:blur(10px);
 border-bottom:1px solid var(--border);
 position:sticky;
@@ -58,7 +52,7 @@ font-weight:600;
 
 .logo img{
 height:34px;
-border-radius:8px;
+border-radius:10px;
 }
 
 .nav-links a{
@@ -68,30 +62,26 @@ color:var(--muted);
 font-size:14px;
 }
 
-.nav-links a:hover{
-color:white;
-}
+.nav-links a:hover{color:white}
 
 /* HERO */
 .hero{
-max-width:1000px;
-margin:120px auto;
 text-align:center;
-padding:0 20px;
+margin:120px auto;
+max-width:900px;
 }
 
 .hero-logo{
-height:70px;
-width:70px;
-border-radius:14px;
-object-fit:cover;
+height:80px;
+border-radius:16px;
 margin-bottom:20px;
-box-shadow:0 10px 30px rgba(0,0,0,0.4);
+box-shadow:0 0 40px var(--glow);
 }
 
 .hero h1{
-font-size:54px;
+font-size:56px;
 line-height:1.1;
+letter-spacing:-1px;
 }
 
 .hero p{
@@ -104,12 +94,17 @@ font-size:18px;
 .btn{
 display:inline-block;
 margin-top:30px;
-padding:14px 28px;
-border-radius:8px;
+padding:14px 30px;
+border-radius:10px;
 background:var(--accent);
 color:white;
 text-decoration:none;
-font-weight:500;
+transition:0.3s;
+}
+
+.btn:hover{
+transform:translateY(-3px);
+box-shadow:0 10px 30px var(--glow);
 }
 
 /* SECTION */
@@ -118,7 +113,7 @@ max-width:1000px;
 margin:100px auto;
 padding:0 20px;
 opacity:0;
-transform:translateY(30px);
+transform:translateY(40px);
 transition:0.6s;
 }
 
@@ -128,7 +123,7 @@ transform:translateY(0);
 }
 
 h2{
-font-size:30px;
+font-size:32px;
 margin-bottom:10px;
 }
 
@@ -148,37 +143,43 @@ gap:20px;
 .card{
 background:var(--card);
 border:1px solid var(--border);
-border-radius:12px;
+border-radius:14px;
 padding:30px;
+transition:0.3s;
+}
+
+.card:hover{
+transform:translateY(-6px);
+box-shadow:0 10px 40px #000;
+}
+
+/* CTA */
+.cta{
+padding:60px;
+border-radius:16px;
+background:linear-gradient(135deg,#5b7cff,#3a5bff);
+text-align:center;
 }
 
 /* GLASS CONTACT */
 .glass{
 background:rgba(255,255,255,0.05);
 border:1px solid rgba(255,255,255,0.1);
-backdrop-filter:blur(12px);
-border-radius:14px;
+backdrop-filter:blur(14px);
+border-radius:16px;
 padding:30px;
+box-shadow:0 10px 40px #000;
 }
 
 /* FORM */
-.contact input,
-.contact textarea{
+.contact input,.contact textarea{
 width:100%;
 padding:14px;
 margin-top:12px;
 border-radius:8px;
 border:1px solid var(--border);
-background:#0f1318;
+background:#0b0f14;
 color:white;
-}
-
-/* CTA */
-.cta{
-padding:50px;
-border-radius:16px;
-background:var(--accent);
-text-align:center;
 }
 
 /* FOOTER */
@@ -189,13 +190,11 @@ color:var(--muted);
 border-top:1px solid var(--border);
 margin-top:80px;
 }
-
 </style>
 </head>
 
 <body>
 
-<!-- NAVBAR -->
 <nav>
 <div class="logo">
 <img src="https://i.postimg.cc/ZnvffBCg/1dcdb7f7-de7b-48ae-920e-9869e990031b-7C361840-19A8-47AC-B944-81763F2E43D9.jpg">
@@ -212,14 +211,13 @@ margin-top:80px;
 </div>
 </nav>
 
-<!-- HOME -->
+<!-- HERO -->
 <div class="hero" id="home">
 
 <img class="hero-logo" src="https://i.postimg.cc/ZnvffBCg/1dcdb7f7-de7b-48ae-920e-9869e990031b-7C361840-19A8-47AC-B944-81763F2E43D9.jpg">
 
-<h1>We Build AI & Software Products That Scale</h1>
-
-<p>Aurexis Labs designs and builds high-performance systems.</p>
+<h1>Build AI & Software That Wins</h1>
+<p>We design and engineer high-performance digital systems.</p>
 
 <a href="#contact" class="btn">Start Project</a>
 
@@ -228,17 +226,15 @@ margin-top:80px;
 <!-- ABOUT -->
 <section id="about">
 <h2>About</h2>
-<p class="sub">Building impactful technology.</p>
-
+<p class="sub">Focused on real impact.</p>
 <div class="card">
-Aurexis Labs builds AI systems, game engines, and scalable software for modern businesses.
+Aurexis Labs builds scalable AI systems, games, and software for modern businesses.
 </div>
 </section>
 
 <!-- SERVICES -->
 <section>
 <h2>Services</h2>
-
 <div class="grid">
 <div class="card">AI Systems</div>
 <div class="card">Game Development</div>
@@ -249,7 +245,6 @@ Aurexis Labs builds AI systems, game engines, and scalable software for modern b
 <!-- PRICING -->
 <section id="pricing">
 <h2>Pricing</h2>
-
 <div class="grid">
 <div class="card">Starter — ₹10,000+</div>
 <div class="card">Professional — ₹50,000+</div>
@@ -265,12 +260,11 @@ Aurexis Labs builds AI systems, game engines, and scalable software for modern b
 </div>
 </section>
 
-<!-- JOIN TEAM -->
+<!-- TEAM -->
 <section id="team">
-<h2>Join Our Team</h2>
-
+<h2>Join Team</h2>
 <div class="card">
-We are looking for developers and designers. Reach out to collaborate.
+We’re looking for passionate developers and creators.
 </div>
 </section>
 
@@ -293,6 +287,7 @@ We are looking for developers and designers. Reach out to collaborate.
 </p>
 
 </div>
+
 </section>
 
 <footer>
@@ -301,7 +296,6 @@ We are looking for developers and designers. Reach out to collaborate.
 
 <script>
 let sections=document.querySelectorAll("section");
-
 window.addEventListener("scroll",()=>{
 sections.forEach(sec=>{
 if(sec.getBoundingClientRect().top < window.innerHeight-100){
