@@ -211,7 +211,7 @@ margin-top:80px;
 }
 
 /* ANIMATIONS */
-@keyframes fadeUp{
+@keyframes fadeUp
 from{opacity:0; transform:translateY(40px);}
 to{opacity:1; transform:translateY(0);}
 }
@@ -259,13 +259,13 @@ grid-template-columns:1fr;
 <section id="about">
 <h2>About</h2>
 <div class="card">
-Innovating the future of webs for a Connected World.
-Welcome to Innovating Aurexis Labs for a Connected World.
+Innovating the future of webs for a Connected World.<br>
+Welcome to Innovating Aurexis Labs for a Connected World.<br>
 Welcome to AurexisLabs. We are a forward-thinking technology company dedicated to building intelligent, scalable solutions for modern businesses. In a world where digital transformation is no longer optional, we provide the technical foundation that helps our partners thrive, scale, and lead in their respective industries.
 <h2>Our Mission</h2>h2>
 At AurexisLabs, our mission is simple: to empower businesses by turning complex technological challenges into intuitive, high-performance solutions. We believe that whether we are developing enterprise software, AI integrations, cloud infrastructure, the end result should always be seamless, secure, and built  scale.
 <h2>The AurexisLabs Story</h2>
-We started AurexisLabs in 2025 with a shared frustration: We were not able to attract companies and customers for tech reforming and were in a huge loss between the global giants like Microsoft, Google etc.
+We started AurexisLabs in 2025 with a shared frustration: We were not able to attract companies and customers for tech reforming and were in a huge loss between the global giants like Microsoft, Google etc.<br>
 We knew there had to be a smarter way. What began as a small team of passionate engineers has grown into a dedicated lab of innovators, developers, and problem-solvers. Today, we are proud to be the trusted technical engine behind  over 50+ startups, global enterprise clients and cutting-edge digital platforms. We are a forward-thinking technology company dedicated to building intelligent, scalable solutions for modern businesses. In a world where digital transformation is no longer optional, we provide the technical foundation that helps our partners thrive, scale, and lead in their respective industries.
 </div>
 </section>
